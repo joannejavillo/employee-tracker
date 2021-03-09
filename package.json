@@ -19,7 +19,11 @@
   "homepage": "https://github.com/joannejavillo/employee-tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "env": "^0.0.2",
     "inquirer": "^8.0.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "node": "^15.10.0",
+    "sequelize": "^6.5.0"
   }
 }
