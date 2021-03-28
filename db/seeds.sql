@@ -1,33 +1,3 @@
-DROP DATABASE IF EXISTS employeeTracker_db;
-
-CREATE DATABASE employeeTracker_db;
-
-USE employeeTracker_db;
-
-CREATE TABLE department (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30),
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE roles (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(30) NULL,
-    salary DECIMAL(10,2) NULL,
-    department_id INT NOT NULL,
-    FOREIGN KEY (department_id),
-    REFERENCES department (id)
-);
-
-CREATE TABLE employee (
-    id INT NOT NULL AUTO_INCREMENT,
-    firstname VARCHAR(30),
-    lastname VARCHAR(30),
-    manager_id INT NOT NULL UNIQUE,
-    PRIMARY KEY (id)
-);
-
---department
 INSERT INTO department (name)
 VALUES ("Engineering");
 
@@ -42,22 +12,22 @@ VALUES ("Legal");
 
 --roles
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Lawyer", 12000.00, 1);
+VALUES ("Lawyer", 12000.00, 4);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Software Engineer", 8000.00, 2);
+VALUES ("Software Engineer", 8000.00, 1);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Accountant", 7750.00, 3);
+VALUES ("Accountant", 7750.00, 2);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Salesman", 5000.50, 4);
+VALUES ("Salesman", 5000.50, 3);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Lead Engineer", 10000.00, 5);
+VALUES ("Lead Engineer", 10000.00, 1);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Sales Lead", 6500.00, 6);
+VALUES ("Sales Lead", 6500.00, 3);
 
 --employee
 
@@ -84,5 +54,3 @@ VALUES ('Wanda', 'Maximoff', 106);
 SELECT * FROM department;
 SELECT * FROM roles;
 SELECT * FROM employee;
-
-
