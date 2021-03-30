@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
     port: 3306,
 
     //username:
-    user: 'root',
+    user:'root',
 
     // //password:
     password: process.env.DB_PASSWORD,
@@ -26,7 +26,7 @@ const connection = mysql.createConnection({
 const start = () => {
     inquirer
         .prompt({
-            name: "roles",
+            name: "choice",
             type: "list",
             message: "What do you like to do?",
             choices: [
@@ -46,6 +46,7 @@ const start = () => {
             ],
         })
         .then(({ choice }) => {
+            console.log(choice)
             switch (choice) {
                 case "View all employees":
                     viewEmp();
