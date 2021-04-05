@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql');
+//const { allowedNodeEnvironmentFlags } = require('node:process');
 // const cTable = require('console.table');
 require("dotenv").config();
 //const { start } = require('node:repl');
@@ -14,7 +15,7 @@ const connection = mysql.createConnection({
     port: 3306,
 
     //username:
-    user:'root',
+    user: 'root',
 
     // //password:
     password: process.env.DB_PASSWORD,
@@ -52,61 +53,85 @@ const start = () => {
                     viewEmp();
                     break;
                 case "View all employees by department":
-
+                    viewDep();
                     break;
 
                 case "View all employees by manager":
-
+                    viewMan();
                     break;
 
                 case "View all employees by role":
-
+                    viewRoles();
                     break;
                 case "Add employee":
-
+                    addEmp();
                     break;
 
                 case "Add role":
-
+                    addRole();
                     break;
 
                 case "Add department":
-
+                    addDep();
                     break;
 
                 case "Update employee role":
-
+                    updateEmpRole();
                     break;
 
                 case "Update employee manager":
-
+                    updateEmpMan();
                     break;
 
                 case "Delete employee":
-
+                    deleteEmp();
                     break;
 
                 case "Delete role":
-
+                    deleteRole();
                     break;
 
                 case "Delete department":
-
+                    deleteDep();
                     break;
 
                 case "View department budgets":
-
+                    viewDepBudget();
                     break;
                 default:
                     connection.end();
             }
         });
-        const viewEmp = () => {
-            connection.query("SELECT * FROM employee", (err, results) => {
-                console.table(results);
-                start();
+    const viewEmp = () => {
+        connection.query("SELECT * FROM employee", (err, results) => {
+            console.table(results);
+            start();
         });
     };
+    const viewDep = () => {
+        connection.query("SELECT * FROM department", (err, results) => {
+            console.table(results);
+            start();
+        });
+    };
+    const viewMan = () => {
+        connection.query("SELECT * FROM department", (err, results) => {
+            console.table(results);
+            start();
+        });
+    }; 
+    const viewRoles = () => {
+        connection.query("SELECT * FROM roles", (err, results) => {
+            console.table(results);
+            start();
+        });
+    }; 
+    const addEmp = () => {
+        connection.query("SELECT * FROM employee", (err, results) => {
+            console.table(results);
+            start();
+        });
+    }; 
 };
 start();
 
