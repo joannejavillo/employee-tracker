@@ -119,19 +119,71 @@ const start = () => {
             console.table(results);
             start();
         });
-    }; 
+    };
     const viewRoles = () => {
         connection.query("SELECT * FROM roles", (err, results) => {
             console.table(results);
             start();
         });
-    }; 
+    };
     const addEmp = () => {
-        connection.query("SELECT * FROM employee", (err, results) => {
-            console.table(results);
-            start();
+        connection.query("SELECT * FROM roles", (err, res) => {
+            if (err) throw err;
+            inquirer
+                .prompt([
+                    {
+                        name: "firstName",
+                        type: "input",
+                        message: "What is the employee's first name?",
+                    },
+                    {
+                        name: "lastName",
+                        type: "input",
+                        message: "What is the employee's last name?",
+                    },
+                    {
+                        name: "managerId",
+                        type: "input",
+                        message: "What is the employee's manager's ID?",
+                    },
+                    {
+                        name: "role",
+                        type: "list",
+                        choices: function () {
+                            var roleArray = [];
+                            for (let i = 0; i < res.length; i++) {
+                                roleArray.push(res[i].title);
+                            }
+                            return roleArray;
+                        },
+                        message: "What is this employee's role?",
+                    },
+                ])
+                .then(function (answer) {
+                    let role_id;
+                    for (let a = 0; a < res.length; a++) {
+                        if (res[a].title == answer.role) {
+                            role_id = res[a].id;
+                            console.log(role_id);
+                        }
+                    }
+                    connection.query("INSERT INTO employee SET?",
+                        {
+                            firstName: answer.firstName,
+                            lastName: answer.lastName,
+                            managerID: answer.managerId,
+                            role_id: role_id,
+                        },
+                        function (err) {
+                            if (err) throw err;
+                            console.log("Your employee has been added!");
+                            start();
+                        }
+                    )       //console.table(results);
+                });
         });
-    }; 
+
+    };
 };
 start();
 
