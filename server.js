@@ -52,13 +52,17 @@ const start = () => {
                 case "View all employees":
                     viewEmp();
                     break;
-                case "View all employees by department":
+                case "View all department":
                     viewDep();
                     break;
 
                 case "View all employees by manager":
                     viewMan();
                     break;
+                 
+                case "View all employees by department":
+                    viewEmpDep();
+                    break;    
 
                 case "View all employees by role":
                     viewRoles();
@@ -102,30 +106,42 @@ const start = () => {
                     connection.end();
             }
         });
+        //View all employees
     const viewEmp = () => {
         connection.query("SELECT * FROM employee", (err, results) => {
             console.table(results);
             start();
         });
     };
+        //View all departments
     const viewDep = () => {
         connection.query("SELECT * FROM department", (err, results) => {
             console.table(results);
             start();
         });
     };
+        //View all employees by managers
     const viewMan = () => {
         connection.query("SELECT * FROM department", (err, results) => {
             console.table(results);
             start();
         });
     };
+        //View all  roles
     const viewRoles = () => {
         connection.query("SELECT * FROM roles", (err, results) => {
             console.table(results);
             start();
         });
     };
+        //View all employees that is working in each department
+    const viewEmpDep = () => {
+        connection.query("SELECT * FROM employee LEFT JOIN roles ON role_id = roles.id", (err, results) => {
+            console.table(results);
+            start();
+        });
+    };
+    
     const addEmp = () => {
         connection.query("SELECT * FROM roles", (err, res) => {
             if (err) throw err;
@@ -147,7 +163,7 @@ const start = () => {
                         message: "What is the employee's manager's ID?",
                     },
                     {
-                        name: "role",
+                        name: "roleId",
                         type: "list",
                         choices: function () {
                             var roleArray = [];
@@ -171,8 +187,8 @@ const start = () => {
                         {
                             firstName: answer.firstName,
                             lastName: answer.lastName,
-                            managerID: answer.managerId,
-                            role_id: role_id,
+                            manager_id: answer.managerId,
+                            role_id: answer.roleId,
                         },
                         function (err) {
                             if (err) throw err;

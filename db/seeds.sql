@@ -31,23 +31,23 @@ VALUES ("Sales Lead", 6500.00, 3);
 
 --employee
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Tony', 'Stark', 101);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Tony', 'Stark', 101, 1);
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Pepper', 'Potts', 102);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Pepper', 'Potts', 102, 2);
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Bruce', 'Wayne', 103);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Bruce', 'Wayne', 103, 3);
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Diana', 'Prince', 104);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Diana', 'Prince', 104, 4);
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Steven', 'Rogers', 105);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Steven', 'Rogers', 105, 5);
 
-INSERT INTO employee (firstName, lastName, manager_id)
-VALUES ('Wanda', 'Maximoff', 106);
+INSERT INTO employee (firstName, lastName, manager_id, role_id)
+VALUES ('Wanda', 'Maximoff', 106, 6);
 
 
 --
