@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 //const { allowedNodeEnvironmentFlags } = require('node:process');
-// const cTable = require('console.table');
+//const cTable = require('console.table');
 require("dotenv").config();
 //const { start } = require('node:repl');
 //const sequelize = require('./config/connection');
@@ -15,11 +15,11 @@ const connection = mysql.createConnection({
     port: 3306,
 
     //username:
-    user: 'root',
+    user: "root",
 
     // //password:
     password: process.env.DB_PASSWORD,
-    database: 'employeeTracker_db',
+    database: "employeeTracker_db",
 
 });
 
@@ -59,10 +59,10 @@ const start = () => {
                 case "View all employees by manager":
                     viewMan();
                     break;
-                 
+
                 case "View all employees by department":
                     viewEmpDep();
-                    break;    
+                    break;
 
                 case "View all employees by role":
                     viewRoles();
@@ -106,42 +106,42 @@ const start = () => {
                     connection.end();
             }
         });
-        //View all employees
+    //View all employees
     const viewEmp = () => {
         connection.query("SELECT * FROM employee", (err, results) => {
             console.table(results);
             start();
         });
     };
-        //View all departments
+    //View all departments
     const viewDep = () => {
         connection.query("SELECT * FROM department", (err, results) => {
             console.table(results);
             start();
         });
     };
-        //View all employees by managers
+    //View all employees by managers
     const viewMan = () => {
         connection.query("SELECT * FROM department", (err, results) => {
             console.table(results);
             start();
         });
     };
-        //View all  roles
+    //View all  roles
     const viewRoles = () => {
         connection.query("SELECT * FROM roles", (err, results) => {
             console.table(results);
             start();
         });
     };
-        //View all employees that is working in each department
+    //View all employees that is working in each department
     const viewEmpDep = () => {
         connection.query("SELECT * FROM employee LEFT JOIN roles ON role_id = roles.id", (err, results) => {
             console.table(results);
             start();
         });
     };
-    
+
     const addEmp = () => {
         connection.query("SELECT * FROM roles", (err, res) => {
             if (err) throw err;
@@ -178,17 +178,18 @@ const start = () => {
                 .then(function (answer) {
                     let role_id;
                     for (let a = 0; a < res.length; a++) {
-                        if (res[a].title == answer.role) {
+                        if (res[a].title == answer.roleId) {
                             role_id = res[a].id;
                             console.log(role_id);
                         }
                     }
+                    console.log(answer)
                     connection.query("INSERT INTO employee SET?",
                         {
                             firstName: answer.firstName,
                             lastName: answer.lastName,
                             manager_id: answer.managerId,
-                            role_id: answer.roleId,
+                            role_id: role_id,
                         },
                         function (err) {
                             if (err) throw err;
