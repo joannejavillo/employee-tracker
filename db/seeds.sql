@@ -1,53 +1,27 @@
-INSERT INTO department (deptname)
-VALUES ("Engineering");
-
-INSERT INTO department (deptname)
-VALUES ("Finance");
-
-INSERT INTO department (deptname)
-VALUES ("Sales");
-
-INSERT INTO department (deptname)
-VALUES ("Legal");
+INSERT INTO department (deptname, id)
+VALUES ("Engineering", 1),
+("Finance", 2),
+("Sales", 3),
+("Legal", 4);
 
 
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Lawyer", 12000.00, 4);
-
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Software Engineer", 8000.00, 1);
-
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Accountant", 7750.00, 2);
-
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Salesman", 5000.50, 3);
-
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Lead Engineer", 10000.00, 1);
-
-INSERT INTO roles (title, salary, department_id)
-VALUES ("Sales Lead", 6500.00, 3);
+INSERT INTO roles (title, salary, department_id, id)
+VALUES("Lawyer", 12000.00, 4, 1),
+("Software Engineer", 8000.00, 1, 2),
+("Accountant", 7750.00, 2, 3),
+("Salesman", 5000.50, 3, 4),
+("Lead Engineer", 10000.00, 1, 5),
+("Sales Lead", 6500.00, 3, 6);
 
 
 
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Tony', 'Stark', null, 1);
-
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Pepper', 'Potts', null , 2);
-
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Bruce', 'Wayne', 31, 3);
-
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Diana', 'Prince', 26 ,4);
-
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Steven', 'Rogers', 31, 5);
-
-INSERT INTO employee (firstName, lastName, manager_id, role_id)
-VALUES ('Wanda', 'Maximoff', 26, 6);
+INSERT INTO employee (firstName, lastName, manager_id, role_id, id)
+VALUES ('Tony', 'Stark', null, 1, 1),
+('Pepper', 'Potts', null , 2, 2),
+('Bruce', 'Wayne', 1, 3, 3),
+('Diana', 'Prince', 2 ,4, 4),
+('Steven', 'Rogers', 3, 5, 5),
+('Wanda', 'Maximoff', 1, 6, 6);
 
 
 

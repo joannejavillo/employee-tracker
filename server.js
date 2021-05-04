@@ -202,12 +202,13 @@ const start = () => {
 
     };
 };
-start();
 
-// connection.connect((err) => {
-//     if (err) throw err;
-//     //runSearch();
-//start();
+
+connection.connect((err) => {
+    if (err) throw err;
+    //runSearch();
+start();
+});
 
 
 // connection.connect((err) => {
