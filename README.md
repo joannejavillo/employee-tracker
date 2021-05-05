@@ -48,7 +48,6 @@ node js, npm, inquirer, MySQL
 
 ## Challenges
  - My SQL shut down and it took me two times to uninstall and reinstall to make it work again.
- - I was not able to meet all the criteria as my time is not enough.
 ---
 ## License
 - MIT
