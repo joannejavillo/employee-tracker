@@ -30,11 +30,13 @@ node js, npm, inquirer, MySQL
 
 ---
 ## Screenshots
-![screenshot-of-mainpage](./Assets/images/pictureone.png)
+![screenshot-of-code](./assets/images/codeone.png) "test run of the code"
+---
 
-![screenshot-of-image-one](./Assets/images/picturetwo.png)
+![screenshot-of-image-one](./assets/images/codetwo.png) "another screenshot of running the code"
+---
 
-![screenshot-of-image-one](./Assets/images/picturethree.png)
+![screenshot-of-image-one](./assets/images/addemployee.png) "screenshot of adding an employee" 
 
 ---
 ## License
