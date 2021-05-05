@@ -8,6 +8,7 @@
     - add departments, roles, employees
     - view departments, roles, employees,
     - update employee roles
+    - delete departments, roles and employees
 
  ---
 # Table of Contents 
@@ -16,6 +17,8 @@
   - [Technologies](#Technologies)
   - [Links](#Links)
   - [Screenshots](#Screenshots)
+  - [Video](#Video)
+  - [Challenges](#Challenges)
   - [License](#License)
   - [Questions](#questions)
 ---
@@ -37,7 +40,14 @@ node js, npm, inquirer, MySQL
 ---
 
 ![screenshot-of-image-one](./assets/images/addemployee.png) "screenshot of adding an employee" 
+---
+## Video
+![employee-tracker-video](./assets/video/emptracker.gif)
+"Video of running the code"
 
+## Challenges
+ - My SQL shut down and it took me two times to uninstall and reinstall to make it work again.
+ - I was not able to meet all the criteria as my time is not enough.
 ---
 ## License
 - MIT
