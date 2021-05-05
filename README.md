@@ -29,6 +29,7 @@ node js, npm, inquirer, MySQL
 ---
 ## Links
  - Github: (https://github.com/joannejavillo/employee-tracker)
+ - Full Video: (https://drive.google.com/file/d/1-FTAupI--m1rsl4m0pAz_MESI3PzHIdU/view?usp=sharing)
  
 
 ---
